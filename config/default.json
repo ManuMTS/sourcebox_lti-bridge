@@ -1,0 +1,26 @@
+{
+    "serverUrl": "http://lfes202.hab.h-ab.de",
+    "sourcebox": {
+        "loopMount": "/mnt",
+        "options": {
+            "diskspace": "30MB",
+            "memory": "30MB",
+            "cpu": 9,
+            "processes": 20
+        }
+    },
+    "sourceboxServer": {
+        "authTimeout": 10000,
+        "sessionTimeout": 300000
+    },
+    "lti": {
+        "consumer_key": "9mCYhBS6kgDzt",
+        "consumer_secret": "qT8XB08JlTKy4k8l"
+    },
+    "database": {
+        "url": "mongodb://localhost:27017/sourcebox-lti_bridge",
+        "fileLimitKB": "10",
+        "maxNumberOfFiles": "5"
+    },
+    "debug": false
+}

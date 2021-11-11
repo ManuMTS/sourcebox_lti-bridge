@@ -1,0 +1,7 @@
+{
+  "name" : "Sourcebox LTI Bridge",
+  "script" : "src/server/server.js",
+  "env_production" : {
+    "NODE_ENV": "production"
+  }
+}

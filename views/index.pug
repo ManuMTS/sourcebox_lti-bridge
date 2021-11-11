@@ -1,0 +1,122 @@
+doctype html
+html
+  head
+    title "C Programming"
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="style.min.css")
+
+  body
+    .container-fluid
+      .row
+        .col-sm-3.col-md-2
+
+          a.btn.btn-primary(href!=returnUrl) 
+            span.glyphicon.glyphicon-chevron-left 
+            span  Back
+        
+          button#download.btn.btn-warning(type="button").btn-standart
+            span.glyphicon.glyphicon-save
+            span  Download
+
+          button#help.btn.btn-default(type="button" data-toggle="modal" data-target="#helpModal")
+            span.glyphicon.glyphicon-question-sign
+            span  Help
+
+          .btn-group
+            button#save.btn.btn-success(type="button").btn-standart
+              span.glyphicon.glyphicon-floppy-disk
+              span  Save
+
+            button#compile.btn.btn-success(type="button").btn-standart
+              span.glyphicon.glyphicon-retweet
+              span  Compile
+
+            button#run.btn.btn-success(type="button").btn-standart
+              span.glyphicon.glyphicon-play
+              span  Run
+
+            button#stop.btn.btn-danger(type="button").btn-standart
+              span.glyphicon.glyphicon-stop
+              span  Stop
+
+          div#files
+            #treecontainer
+          
+          br
+          .btn-group
+            button#newFile.btn.btn-default(type="button").btn-standart
+              span.glyphicon.glyphicon-plus
+              span  New
+
+            button#rename.btn.btn-default(type="button").btn-standart
+              span.glyphicon.glyphicon-pencil
+              span  Rename
+
+            button#remove.btn.btn-default(type="button" data-toggle="confirmation") 
+              span.glyphicon.glyphicon-remove
+              span  Remove
+          
+          if isTeacher
+            .teacherMenu
+              button#statistic.btn.btn-info(type="button" data-toggle="modal" data-target="#statisticModal")
+                span.glyphicon.glyphicon-signal
+                span  Statistic    
+              button#settings.btn.btn-default(type="button" data-toggle="modal" data-target="#settingsModal")
+                span.glyphicon.glyphicon-cog
+                span  Settings
+
+        .col-sm-9.col-md-5
+          ul.nav.nav-tabs#fileTabs(role="tablist").hidden
+            each file in files
+              li 
+                a(href="#"+file.filenameClear role="tab" data-toggle="tab" data-id=file.filename)!=file.filename                
+          
+          .tab-content#fileTabsContent
+            each file in files
+              .tab-pane(id=file.filenameClear data-id=file.filename)
+                h4
+                  span.fa.fa-file
+                  |  
+                  span.title=file.filename
+                  |    
+                  div.btn-group(role="group")
+                    button.btn.btn-default.btn-xs.undo(type="button" data-id=file.filename disabled)
+                      span.fa.fa-rotate-left
+                      |  Undo
+                    button.btn.btn-default.btn-xs.redo(type="button" data-id=file.filename disabled)
+                      span.fa.fa-rotate-right
+                      |  Redo
+                    button.btn.btn-default.btn-xs.search(type="button" data-id=file.filename)
+                      span.fa.fa-search
+                      |  Search
+                    button.btn.btn-default.btn-xs.replace(type="button" data-id=file.filename)
+                      span.fa.fa-exchange
+                      |  Replace
+
+                div.editor(id=file.filenameClear+"_editor")!=file.content
+
+        .col-sm-9.col-sm-offset-3.col-md-5.col-md-offset-0
+          if isDebug
+            .input-group
+              input.form-control#command
+              .input-group-btn
+                button#exec.btn.btn-success(type="button")
+                  span.glyphicon.glyphicon-flash
+                  span  Exec
+          
+          #terms
+
+      include help.pug
+      if isTeacher
+        include statisticModal.pug
+        include settingsModal.pug
+
+    script.
+      let globalOptions = !{JSON.stringify(globalOptions)};
+    script(src="bundleClient.min.js")
+
+    if isTeacher
+      script(src="bundleTeacher.min.js")
+    
+    if isDebug
+      script(src="bundleDebug.min.js")

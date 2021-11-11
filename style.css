@@ -1,0 +1,32 @@
+.editor {
+  height: 400px; 
+}
+.row {
+  margin-bottom: 10px;
+}
+button.close {
+  margin-left: 5px;
+}
+.addFile {
+  margin-top: 20px;
+}
+#files, .teacherMenu {
+  margin-top: 20px;
+}
+.unsaved {
+  font-style: italic;
+}
+.jstree-anchor.hasWarning,
+.jstree-anchor.hasWarning:active,
+.jstree-anchor.hasWarning:hover,
+.jstree-anchor.hasWarning:link,
+.jstree-anchor.hasWarning:visited {
+  color: #FFAA4E;
+}
+.jstree-anchor.hasError,
+.jstree-anchor.hasError:active,
+.jstree-anchor.hasError:hover,
+.jstree-anchor.hasError:link,
+.jstree-anchor.hasError:visited {
+  color: #FD5B37;
+}

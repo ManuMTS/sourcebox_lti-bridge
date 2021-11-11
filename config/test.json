@@ -1,0 +1,7 @@
+{
+    "database": {
+        // WARNING: Never use your live database here, 
+        // the test routing could delete data
+        "url": "mongodb://localhost:27017/sourcebox-lti_bridge-test"
+    }
+}

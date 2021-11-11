@@ -1,0 +1,26 @@
+{
+    "serverUrl": "http://server-address",
+    "sourcebox": {
+        "loopMount": "/mnt/sourcebox",        
+        "options": {
+            "diskspace": "50MB",
+            "memory": "30MB",
+            "cpu": 10,
+            "processes": 20
+        }
+    },
+    "sourceboxServer": {
+        "authTimeout": 10000,
+        "sessionTimeout": 300000
+    },
+    "lti": {
+        "consumer_key": "12345",
+        "consumer_secret": "secret"
+    },
+    "database": {
+        "url": "mongodb://localhost:27017/sourcebox-lti_bridge",
+        "fileLimitKB": "10",
+        "maxNumberOfFiles": "5"
+    },
+    "debug": false
+}

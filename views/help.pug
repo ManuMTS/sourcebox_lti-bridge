@@ -1,0 +1,47 @@
+#helpModal.modal.fade(role="dialog", tabindex="-1", aria-labelledby="gridModalLabel", style="display: none;")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        button.close(type="button", data-dismiss="modal", aria-label="Close")
+          span(aria-hidden="true") ×
+        h4#gridModalLabel.modal-title 
+          span.glyphicon.glyphicon-question-sign
+          span   Help
+      .modal-body
+        h4 Shortcuts
+        table.table.table-striped
+          thead
+            tr
+              td Shortcut (Windows/Linux)
+              td Shortcut (Mac)
+              td Action
+          tbody
+            tr
+              td Ctrl + s
+              td Command + s
+              td Save
+            tr
+              td Ctrl + b
+              td Command + b
+              td Compile
+            tr
+              td Ctrl + u
+              td Command + u
+              td Run / Stop
+            tr
+              td Ctrl + Space
+              td Command + Space
+              td Autocomplete*
+            tr
+              td Ctrl + f
+              td Command + f
+              td Search*
+            tr
+              td Ctrl + h
+              td Command + h
+              td Replace*
+
+        small * Only in Editor
+
+      .modal-footer
+        button.btn.btn-default(type="button", data-dismiss="modal") Close

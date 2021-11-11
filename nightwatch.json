@@ -1,0 +1,33 @@
+{
+  "src_folders" : ["integration_test/tests"],
+  "output_folder" : false,
+  "custom_commands_path": "integration_test/commands",
+  "custom_assertions_path" : "",
+  "page_objects_path" : "",
+  "globals_path" : "",
+
+  "selenium" : {
+    "start_process" : true,
+    "server_path" : "integration_test/bin/selenium-server-standalone-3.5.3.jar",
+    "log_path" : false,
+    "port" : 4444,
+    "cli_args" : {
+      "webdriver.gecko.driver" : "integration_test/bin/geckodriver"
+    }
+  },
+
+  "test_settings" : {
+    "default" : {
+      "selenium_port"  : 4444,
+      "selenium_host"  : "localhost",
+      "silent": true,
+      "screenshots" : {
+        "enabled" : false
+      },
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "marionette": true
+      }
+    }
+  }
+}

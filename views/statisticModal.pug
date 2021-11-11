@@ -1,0 +1,29 @@
+#statisticModal.modal.fade(role="dialog", tabindex="-1", aria-labelledby="gridModalLabel", style="display: none;")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        button.close(type="button", data-dismiss="modal", aria-label="Close")
+          span(aria-hidden="true") ×
+        h4#gridModalLabel.modal-title 
+          span.glyphicon.glyphicon-signal
+          span   Statistic
+      .modal-body
+        h3.text-center Number of users
+        div.text-center
+          span.label.label-info!=statistic.usersCount
+        
+        h3.text-center Common errors
+        table.table.table-striped
+          thead
+            tr
+              th.text-center Quantity
+              th Error message
+          tbody
+            each error in statistic.errors
+              tr
+                td.text-center 
+                  span.label.label-info= error.count
+                td= error.errorMessage
+
+      .modal-footer
+        button.btn.btn-default(type="button", data-dismiss="modal") Close
